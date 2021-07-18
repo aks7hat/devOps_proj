@@ -43,6 +43,19 @@ pipeline {
                     }
                 }
             }
-        }    
+        }
+        stage('Docker Stop if already running'){
+            steps{
+                sh 'docker ps -f name=devopsprojectContainer -q | xargs --no-run-if-empty docker container stop'
+                sh 'docker container ls -a -fname=devopsprojectContainer -q | xargs -r docker container rm'
+            }
+        }        
+        stage('Docker Run'){
+            steps{
+                script{
+                    dockerImage.run("-p 8090:7100 --rm --name devopsprojectContainer")
+                }
+            }
+        }
     }
 }
