@@ -34,8 +34,7 @@ pipeline {
                         dockerImage = docker.build registry
                     }
                 }                
-            }            
-        }
+            }  
         stage('Uploading image'){
             steps{
                 script{
