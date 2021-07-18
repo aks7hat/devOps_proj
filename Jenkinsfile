@@ -30,7 +30,10 @@ pipeline {
         }
         stage('Build Docker image'){
             steps{
-                dockerImage = docker.build registry
+                 script{
+                        dockerImage = docker.build registry
+                    }
+                }                
             }            
         }
         stage('Uploading image'){
