@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment{
         dockerImage=""
-        registry='aks07hat/devopsproject'
+        registry='aks07hat/devopsprojectDevelopBranch'
         registryCredentials='docker'
     }
     stages {
