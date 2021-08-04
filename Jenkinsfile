@@ -53,7 +53,7 @@ pipeline {
         stage('Docker Run'){
             steps{
                 script{
-                    dockerImage.run("-p 8090:7100 --rm --name devopsprojectContainer")
+                    dockerImage.run("-p 8090:7100 --rm --name devopsprojectDevelopContainer")
                 }
             }
         }
